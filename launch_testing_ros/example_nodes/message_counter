@@ -6,15 +6,15 @@ import std_msgs.msg
 import test_msgs.srv
 
 
-# This is a simple ROS node for demonstrating apex_launchtest.  It subscribes to a ROS topic and
-# listens for strings which will be printed to stdout.  It also keeps a running count of the
-# number of strings which can be read via a ROS service
+# This is a simple ROS node for demonstrating apex_launchtest.  It subscribes to a ROS topic
+# and listens for strings which will be printed to stdout.  It also keeps a running count of
+# the number of strings which can be read via a ROS service
 # ROS Topics:
 #   /msg - type: std_msgs/String
 # ROS Services:
-#   /get_message_count - type: test_msgs/Primitives.  The 'request' part of this service is not
-#     used.  The 'response' part of the primitive will put the current message count in the
-#     int32_value field
+#   /get_message_count - type: test_msgs/Primitives.  The 'request' part of this service is
+#     not used. The 'response' part of the primitive will put the current message count in
+#     the int32_value field
 
 
 class MsgCounter(object):
@@ -25,7 +25,7 @@ class MsgCounter(object):
     def sub(self, msg):
         self._count += 1
         print (msg.data)
-        print ("Count is {}".format(self._count))
+        print ('Count is {}'.format(self._count))
 
     def srv_cb(self, req, resp):
         resp.int32_value = self._count
@@ -35,28 +35,29 @@ class MsgCounter(object):
 def main():
     rclpy.init()
 
-    node = rclpy.create_node("msg_counter_py")
+    node = rclpy.create_node('msg_counter_py')
 
     counter = MsgCounter()
 
     sub = node.create_subscription(
         msg_type=std_msgs.msg.String,
-        topic="msgs",
+        topic='msgs',
         callback=counter.sub
     )
 
     srv = node.create_service(
         srv_type=test_msgs.srv.Primitives,
-        srv_name="get_message_count",
+        srv_name='get_message_count',
         callback=counter.srv_cb
     )
 
-    try: 
+    try:
         rclpy.spin(node)
     except KeyboardInterrupt:
         pass
     finally:
         node.destroy_node()
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     main()

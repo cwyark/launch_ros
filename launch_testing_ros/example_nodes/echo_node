@@ -8,35 +8,36 @@ import std_msgs.msg
 
 
 def main():
-    print("rclpy.init()")
+    print('rclpy.init()')
     rclpy.init()
 
-    node = rclpy.create_node("echo_py")
+    node = rclpy.create_node('echo_py')
 
-    print("sleeping")
+    print('sleeping')
 
     time.sleep(2.0)
-    print("done sleeping")
+    print('done sleeping')
 
     pub = node.create_publisher(
         msg_type=std_msgs.msg.String,
-        topic="echo"
+        topic='echo'
     )
 
     sub = node.create_subscription(
         msg_type=std_msgs.msg.String,
-        topic="listen",
+        topic='listen',
         callback=lambda msg: pub.publish(msg)
     )
 
-    print("ready")
+    print('ready')
 
-    try: 
+    try:
         rclpy.spin(node)
     except KeyboardInterrupt:
         pass
     finally:
         node.destroy_node()
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     main()

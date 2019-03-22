@@ -2,12 +2,13 @@
 
 import time
 
-# If all nodes launched by apex_launchtest die before the tests are over, apex_launchtest treats that
-# like a test failure.  To allow testing in this situation, apex_launchtest provides the empty_node
-# which can be launched alongside the other nodes under test allowing them to terminate on their
-# own without causing a test failure
+# If all nodes launched by apex_launchtest die before the tests are over, launchtest
+# treats that like a test failure.  To allow testing in this situation, launch_testing_ros
+# provides the empty_node which can be launched alongside the other nodes under test
+# allowing them to terminate on their own without causing a test failure.
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
 
     try:
         while True:

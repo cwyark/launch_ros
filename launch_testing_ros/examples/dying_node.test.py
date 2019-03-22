@@ -28,7 +28,7 @@ def generate_test_description(ready_fn):
     ready_fn()
 
     return LaunchDescription([
-        Node(package='apex_launchtest', node_executable='dying_node', output='screen')
+        Node(package='launch_testing_ros', node_executable='dying_node', output='screen')
     ])
 
 
@@ -41,12 +41,12 @@ class ExampleTest(unittest.TestCase):
 
         test_pub = self.node.create_publisher(
             msg_type=std_msgs.msg.String,
-            topic="self_destruct"
+            topic='self_destruct'
         )
 
         time.sleep(1.0)
         msg = std_msgs.msg.String()
-        msg.data = "kill the node under test"
+        msg.data = 'kill the node under test'
         test_pub.publish(msg)
 
         time.sleep(1.0)

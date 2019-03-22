@@ -3,18 +3,18 @@
 import sys
 import time
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
-    print("Emulating Setup")
+    print('Emulating Setup')
     time.sleep(1.0)
-    print("Ready")
+    print('Ready')
 
     if sys.argv[1:]:
-        print("Called with arguments {}".format(sys.argv[1:]))
+        print('Called with arguments {}'.format(sys.argv[1:]))
 
     try:
-        print("Emulating Work")
+        print('Emulating Work')
         time.sleep(1.0)
-        print("Done")
+        print('Done')
     except KeyboardInterrupt:
         pass
