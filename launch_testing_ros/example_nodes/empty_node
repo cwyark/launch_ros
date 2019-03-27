@@ -2,7 +2,7 @@
 
 import time
 
-# If all nodes launched by apex_launchtest die before the tests are over, launchtest
+# If all nodes launched by launch_test die before the tests are over, launch_test
 # treats that like a test failure.  To allow testing in this situation, launch_testing_ros
 # provides the empty_node which can be launched alongside the other nodes under test
 # allowing them to terminate on their own without causing a test failure.

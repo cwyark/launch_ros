@@ -6,7 +6,7 @@ import std_msgs.msg
 import test_msgs.srv
 
 
-# This is a simple ROS node for demonstrating apex_launchtest.  It subscribes to a ROS topic
+# This is a simple ROS node for demonstrating launch_test.  It subscribes to a ROS topic
 # and listens for strings which will be printed to stdout.  It also keeps a running count of
 # the number of strings which can be read via a ROS service
 # ROS Topics:

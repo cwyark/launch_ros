@@ -3,6 +3,7 @@
 ## message_counter.launch.py
 
 Usage:
-> launchtest examples/message_counter.launch.py
-
+```sh
+launch_test examples/message_counter.launch.py
+```
 Launches a message counter node and runs a few tests to interact with the node
